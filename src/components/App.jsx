@@ -9,7 +9,8 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: '',
-    number: ''
+    number: '',
+    name: '',
   };
 
 handleNameChange = (event) => {
@@ -25,9 +26,12 @@ handleSubmit = (event) => {
  
   const { name, number, contacts } = this.state;
   
-  if (contacts.find((contact) => contact.name === name)) {
-    alert(`${name} is already in contacts!`);
-    return;
+  const isAlreadyInContacts = contacts.some(
+     (contact) => contact.name === name
+  );
+  if (isAlreadyInContacts) {
+     alert(`${name} is already in contacts!`);
+     return;
   }
 
   const newContact = {
