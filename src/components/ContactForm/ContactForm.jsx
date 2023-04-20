@@ -23,7 +23,7 @@ class ContactForm extends Component {
     const { name, number } = this.state;
 
    return (
-     <form onSubmit={onSubmit} className={css.form}>
+     <form onSubmit={this.onSubmit} className={css.form}>
        <label className={css.label}>
          Name:
          <input
